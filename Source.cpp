@@ -1,5 +1,5 @@
 // File: Days_of_the_Week.cpp
-// Author: Waxyshaw <brian.m.shaw@outlook.com>
+// Author: Waxyshaw
 //
 // This program is meant to identify the day of the week of any date from Year 1900-2100
 
@@ -73,7 +73,7 @@ int main() {
 			preDays - 1;
 		}
 		else {
-			cout << preDays << " days before date." << endl;
+			cout << "\n\n" << preDays << " days before date.\n\n" << endl;
 		}
 
 // More Math. Adding Days together to get number of days since 01/01/1901
@@ -119,7 +119,9 @@ int main() {
 	}
 
 // Almost there!
-		weekDays = (monDays + preDays) % 7;
+		weekDays = ((monDays + preDays)-2) % 7;
+
+// Week day cases
 		switch (weekDays) {
 		case 1:
 			cout << "The date: " << month << "/" << day << "/" << year << " was a Sunday" << endl;
@@ -148,7 +150,7 @@ int main() {
 
 // Exit command
 	char exit;
-	cout << "Type any character and \"Enter\" to quit.\n";
+	cout << "\n\n\nType any character and \"Enter\" to quit.\n";
 	cin >> exit;
 	return 0;
 }
