@@ -34,6 +34,7 @@ int main() {
 	int Nov = 30;
 	int Dec = 31;
 
+
 // Ask for user input in <month>, <day> <year> format.
 
 // Month input with failure case.
@@ -66,15 +67,20 @@ int main() {
 // Math
 	remYear = year - 1900; // Simplifying the year.
 	preDays = remYear * 365; // Getting total days from previous years.
+	cout << preDays << " remYear * 365" << endl;
 
 // Accounting for Leap Years
+
+	preDays = preDays - remYear / 4;
+	cout << preDays << " Minus leap days" << endl;
 		if ((month < 3) && (year % 4 == 0)) {
 			cout << "leap year" << endl;
-			preDays - 1;
+			preDays = preDays + 1;
 		}
 		else {
 			cout << "\n\n" << preDays << " days before date.\n\n" << endl;
 		}
+		
 
 // More Math. Adding Days together to get number of days since 01/01/1901
 		switch (month){
@@ -118,8 +124,9 @@ int main() {
 			cout << "Something is wrong with this code. Contact the developer and tell him to get his butt in gear and fix it." << endl;
 	}
 
+
 // Almost there!
-		weekDays = ((monDays + preDays)-2) % 7;
+		weekDays = (monDays + preDays + day) % 7;
 
 // Week day cases
 		switch (weekDays) {
@@ -141,11 +148,11 @@ int main() {
 		case 6:
 			cout << "The date: " << month << "/" << day << "/" << year << " was a Friday" << endl;
 			break;
-		case 7:
+		case 0:
 			cout << "The date: " << month << "/" << day << "/" << year << " was a Saturday" << endl;
 			break;
 		default:
-			cout << "The developer's weekDays variable is wrong. Tell him to fix this NOW." << endl;
+			cout << weekDays << "The developer's weekDays variable is wrong. Tell him to fix this NOW." << endl;
 		}
 
 // Exit command
